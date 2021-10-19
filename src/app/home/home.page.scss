@@ -1,0 +1,110 @@
+.fab-btn {
+  --background: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%) !important;
+}
+
+ion-segment-button {
+  color: #FFFFFF;
+  max-width: 10px;
+  --color-checked: var(--ion-color-success-contrast);
+}
+
+ion-segment {
+  max-width: fit-content;
+}
+
+.plan-today {
+  padding: inherit;
+  font-style: italic;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  font-size: x-small;
+  text-align: end;
+  padding-right: 10px;
+}
+
+ion-card-content {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  ion-row {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    ion-col {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+/************************/
+ion-content {
+  background: #ededed;
+}
+
+.blog-card {
+  display: flex;
+  position: relative;
+  width: 98.5%;
+  max-width: 100%;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px !important;
+  margin: 15px auto;
+  background-color: white;
+  overflow: hidden !important;
+  border-radius: 5px;
+
+}
+
+.blog-card .content-mask {
+  display: inline-block;
+  // padding: 8px 10px;
+  overflow: hidden;
+  z-index: 5;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.iconDiv {
+  height: 100px;
+  width: 100px;
+  float: right;
+  padding-right: 0;
+}
+
+.iconDiv img {
+  object-fit: cover;
+  height: 100%;
+  box-shadow: 0px 0px 6px 1px rgb(6 6 6 / 8%);
+  margin-top: 1px;
+  margin-left: 1px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.plan_to_do {
+  height: 25%;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.border-right {
+  border-right: 1px solid #D3D3D3;
+  font-style: italic;
+}
+
+.col-font {
+  font-size: smaller;
+  color: #D3D3D3;
+  max-width: 250px !important;
+}
+
+hr {
+  color: #D3D3D3;
+}
+
+@media screen and (max-width: 414px) {
+  .blog-card {
+    width: 96% !important;
+  }
+}

@@ -1,0 +1,25 @@
+ion-segment-button {
+  color: #FFFFFF;
+  max-width: 10px;
+  --color-checked: var(--ion-color-success-contrast);
+}
+
+ion-segment {
+  max-width: fit-content;
+}
+
+.cardlike {
+  padding-left: 92% !important;
+}
+
+@media screen and (max-width: 414px) {
+  .cardlike {
+    padding-left: 68% !important;
+  }
+}
+
+.avatarimg {
+  margin-left: -30px;
+  height: 80%;
+  width: 80%;
+}

@@ -24,3 +24,63 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-toolbar {
+  --background: linear-gradient(90deg, #6466D4 0%, #8B5EC4 74%);
+  --background-color: #8B5EC4;
+  --color: white;
+
+  ion-title {
+    font-weight: 500;
+  }
+
+  ion-grid {
+    padding: 0;
+
+    ion-col {
+      padding: 0;
+    }
+  }
+}
+
+.pink-color {
+  --background-color: #FD5DCD;
+  --background: linear-gradient(0deg, #FD5DCD 0%, #FD8AE2 74%);
+  font-weight: 700;
+}
+
+ion-calendar {
+  background: linear-gradient(90deg, #6466D4 0%, #8B5EC4 74%) !important;
+  background-color: #8B5EC4 !important;
+  padding: 0 !important;
+
+  .title {
+    display: none;
+  }
+
+  max-width: fit-content;
+
+  li,
+  p {
+    color: white !important;
+    font-size: 16px !important;
+  }
+
+  .days {
+    height: 30px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .week-title {
+    height: 0px !important;
+    padding: 14px 0 !important;
+  }
+}
+
+.days-btn[disabled] {
+  p {
+    color: #cecdcd !important;
+  }
+}
+
+//#753075

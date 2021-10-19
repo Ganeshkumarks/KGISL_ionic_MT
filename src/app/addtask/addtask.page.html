@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="addTaskForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title" type="text" required></ion-input>
+    </ion-item>
+
+    <!-- Error messages -->
+    <div class="pt-2">
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.title.errors?.required">
+        Title is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.title.errors?.minlength">
+        Title should be min 5 chars long.
+      </span>
+    </div>
+    <ion-item lines="full">
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea formControlName="description" type="text" required></ion-textarea>
+    </ion-item>
+
+    <!-- Error messages -->
+    <div class="pt-2">
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.required">
+        Description is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.minlength">
+        Description should be min 5 chars long.
+      </span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Date</ion-label>
+      <ion-datetime placeholder="Select Date" formControlName="date" type="text" displayFormat="DD-MMM-YYYY" required>
+      </ion-datetime>
+    </ion-item>
+
+    <!-- Error messages -->
+    <div class="pt-2">
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.date.errors?.required">
+        Date is required.
+      </span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Time</ion-label>
+      <ion-datetime placeholder="Select Time" formControlName="time" type="text" displayFormat="hh:mm A" required>
+      </ion-datetime>
+    </ion-item>
+
+    <!-- Error messages -->
+    <div class="pt-2">
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.time.errors?.required">
+        Time is required.
+      </span>
+    </div>
+    <ion-row center>
+      <ion-col class="center">
+        <ion-button type="submit" class="sub-btn">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

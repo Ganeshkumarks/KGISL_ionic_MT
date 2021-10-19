@@ -1,0 +1,122 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="menu-outline" md="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My Schedule</ion-title>
+    <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged($event)" value="{{ segment }}" slot="primary">
+      <ion-segment-button value="home">
+        <ion-icon name="calendar-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="tab">
+        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <div>
+            <ion-calendar [(ngModel)]="date" [type]="type" [format]="'YYYY-MM-DD'" (change)="onChange($event)">
+            </ion-calendar>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-fab vertical="center" horizontal="center">
+              <ion-fab-button class="pink-color">
+                {{ day }}
+                <br>
+                {{ MonthName }}
+              </ion-fab-button>
+            </ion-fab>
+          </div>
+          <ion-row>
+            <ion-col class="plan-today">
+              {{ todayPlan +' plan today' }}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-----------------------------Next to be done--------------------------------------->
+  <span *ngFor="let nxt of next_to_done; let i=index">
+    <div class="blog-card mx-2 pr-2">
+      <div class="content-mask">
+        <div class="row flex w-100 m-0" style="flex-wrap:nowrap">
+
+          <div class="pt-1 col-8">
+            <span><b>{{ 'Next to be done' }}</b></span>
+            <div class="row w-100 m-0" style="flex-wrap:nowrap">
+              <div class="col border-right col-font" style="max-width: 80px !important;">{{ 'Today' }}</div>
+              <div class="col">
+                <h5>{{ nxt.title }}</h5>
+              </div>
+            </div>
+            <div class="row w-100 m-0" style="flex-wrap:nowrap">
+              <div class="col border-right col-font" style="max-width: 80px !important; font-size: 12px;">{{ nxt.time_24 |
+                date:'shortTime' }}</div>
+              <div class="col col-font" style="font-size: 12px;">{{ nxt.time_24 | date:'shortTime'}} {{'-'}} {{ nxt.time_24 | date:'shortTime'}}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 p-0">
+            <div class="iconDiv">
+              <img class="w-100 border-light" src="/assets/static_map/staticmap.jfif" alt="">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </span>
+  <!-----------------------------------Plan to do----------------------------------------------------->
+  <div class="blog-card mx-2 pr-2">
+    <div class="content-mask">
+      <div class="row w-100 m-0" style="flex-wrap:nowrap">
+        <div class="pt-1 col">
+          <span><b>Plan to do({{ TaskList.length }})</b></span>
+        </div>
+      </div>
+      <span *ngFor="let tsk of TaskList; let i=index; let last = last;">
+        <div class="row w-100 m-0" style="flex-wrap:nowrap">
+
+          <div class="pt-1 col-8">
+            <div class="row w-100 m-0" style="flex-wrap:nowrap">
+              <div class="col">
+                <ion-avatar>
+                  <img src="/assets/icon/man.png">
+                </ion-avatar>
+              </div>
+              <div class="col" style="float: left;">
+                <b>{{ tsk.title }}</b>
+                <div class="col-font" style="font-size:x-smaller">{{ tsk.description | truncate : 20 }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 pr-2">
+            <div style="float:right; font-style: italic;font-size: 14px;">{{ tsk.time_24 | date:'shortTime' }}</div>
+          </div>
+
+        </div>
+        <hr *ngIf="!last">
+        <span class="pb-1" *ngIf="last">&nbsp;</span>
+      </span>
+
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AddTask()" class="fab-btn">
+      <ion-icon name="pencil"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

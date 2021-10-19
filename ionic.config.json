@@ -1,5 +1,7 @@
 {
   "name": "KGISL-MT",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
